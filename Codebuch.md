@@ -10,7 +10,9 @@ Name des Knotens in der Edgelist
 
 ### type
 1 = Management
+
 2 = Werbepartner
+
 3 = Influencer
 
 ### id_name
@@ -25,4 +27,5 @@ Hauptausspielkanal der Influencer
 ## Edgelist
 ### relationship
 1 = Influencer - Management Beziehungen
+
 2 = Beziehungen mit Werbepartnern
