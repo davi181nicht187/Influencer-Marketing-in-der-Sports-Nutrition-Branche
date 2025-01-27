@@ -16,7 +16,7 @@ Name des Knotens in der Edgelist
 3 = Influencer
 
 ### id_name
-Offizieller name des Knotens
+Offizieller Name des Knotens
 
 ### follower_tsd
 Followerzahl der Influencer in Tausend
@@ -26,6 +26,6 @@ Hauptausspielkanal der Influencer
 
 ## Edgelist
 ### relationship
-1 = Influencer - Management Beziehungen
+1 = Influencer-Management-Beziehungen
 
 2 = Beziehungen mit Werbepartnern
