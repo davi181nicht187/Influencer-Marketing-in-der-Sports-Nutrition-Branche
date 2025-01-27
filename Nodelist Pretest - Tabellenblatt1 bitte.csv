@@ -1,0 +1,19 @@
+id,nummer,typ,id_name,follower_tsd,Hauptmedium,Umsatz,Standort
+ai,1,1,ALL IMPACT Management,0,NA,0,NRW
+kr,2,1,Krueger_Rizzi Management,0,NA,0,Rheinland Pfalz
+mg,3,1,MOONGENCY,0,NA,0,Hamburg
+vs,4,1,fourfour Studio,0,NA,0,Berlin
+fy,5,1,fyndafit,0,NA,0,Berlin
+mn,6,2,More Nutrition,0,NA,700,Schleswig Holstein
+en,7,2,ESN,0,NA,700,Schleswig Holstein
+fn,8,2,fayn,0,NA,0,Bayern
+ko,9,2,KoRo Handels GmbH,0,NA,3700,Berlin
+fs,10,2,foodspring,0,NA,20,Berlin
+hf,11,2,Hello Fresh,0,NA,7600,Berlin
+gl,12,3,gerdalewis,1000,instagram,0,NRW
+tl,13,3,tigerlariz,188,instagram,0,Hessen
+pd,14,3,paula_doeringer,523,instagram,0,NRW
+mm,15,3,mariomllr,357,instagram,0,Baden Württemberg
+ga,16,3,growingannanas,1500,instagram,0,Berlin
+jb,17,3,jessicabook,296,instagram,0,NRW
+fg,18,3,fitgreenmind,3900,instagram,0,Saarland
