@@ -8,7 +8,7 @@ Nummer des Knotens
 ### id
 Name des Knotens in der Edgelist
 
-### type
+### typ
 1 = Management
 
 2 = Werbepartner
