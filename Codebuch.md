@@ -25,7 +25,7 @@ Followerzahl der Influencer in Tausend
 Hauptausspielkanal der Influencer
 
 ### Umsatz
-Umsatz der Werbepartner in Euro
+Umsatz der Werbepartner in Millionen Euro
 
 ### Standort
 Firmenstandort des Managements/der Unternehmen oder Wohnort der Influencer
