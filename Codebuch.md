@@ -2,7 +2,7 @@
 
 ## Nodelist
 
-### number
+### nummer
 Nummer des Knotens
 
 ### id
@@ -23,6 +23,14 @@ Followerzahl der Influencer in Tausend
 
 ### Hauptmedium
 Hauptausspielkanal der Influencer
+
+### Umsatz
+Umsatz der Werbepartner in Euro
+
+### Standort
+Firmenstandort des Managements/der Unternehmen oder Wohnort der Influencer
+
+Bundesland = in Deutschland, Land = außerhalb von Deutschland
 
 ## Edgelist
 ### relationship
