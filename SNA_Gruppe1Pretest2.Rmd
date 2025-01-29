@@ -1,0 +1,61 @@
+---
+title: "annewill"
+author: "dh118, ss597"
+date: "2025-01-07"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(igraph)
+library(tidygraph)
+library(manynet)
+library(tidyverse)
+```
+
+# Netzwerk einlesen
+
+```{r Netzwerk einlesen}
+
+el <- read.csv("https://raw.githubusercontent.com/davi181nicht187/pretest/refs/heads/main/Edgelist%20Pretest%20-%20Tabellenblatt1.csv", header=T, as.is=T, sep = ",")
+
+nl <- read.csv("https://raw.githubusercontent.com/davi181nicht187/pretest/refs/heads/main/Nodelist%20Pretest%20-%20Tabellenblatt1%20bitte.csv", header=T, as.is=T, sep = ",")
+
+el
+
+nl
+
+```
+
+
+# Netzwerk erstellen
+
+```{r Netzwerk erstellen}
+
+pre <- tbl_graph(nodes = nl, edges = el, directed = TRUE)
+
+pre
+
+```
+
+
+```{r}
+V(pre)$color <- case_when(
+V(pre)$typ == 3 ~ "yellow",
+V(pre)$typ == 1 ~ "red",
+V(pre)$typ == 2 ~ "lightblue"
+)
+```
+
+
+```{r}
+plot(pre,
+  asp = 0,
+  edge.arrow.size=.2,
+  edge.arrow.color="grey",
+  main="Pretest"
+  )
+```
+
+
