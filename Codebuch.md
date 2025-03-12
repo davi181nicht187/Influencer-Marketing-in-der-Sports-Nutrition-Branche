@@ -7,7 +7,7 @@ Nummer des Knotens
 
 ### id
 Name des Knotens in der Edgelist
-
+(Zahlen wurden in großbuchstaben Ausgeschrieben)
 ### typ
 1 = Management
 
