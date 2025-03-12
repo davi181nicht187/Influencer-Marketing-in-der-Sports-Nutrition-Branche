@@ -2,12 +2,10 @@
 
 ## Nodelist
 
-### nummer
-Nummer des Knotens
 
 ### id
 Name des Knotens in der Edgelist
-(Zahlen wurden in großbuchstaben Ausgeschrieben)
+
 ### typ
 1 = Management
 
@@ -17,6 +15,7 @@ Name des Knotens in der Edgelist
 
 ### id_name
 Offizieller Name des Knotens
+(Zahlen wurden in großbuchstaben Ausgeschrieben)
 
 ### follower_tsd
 Followerzahl der Influencer in Tausend
