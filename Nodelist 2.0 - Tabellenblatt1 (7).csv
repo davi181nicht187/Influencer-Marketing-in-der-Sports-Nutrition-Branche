@@ -1,0 +1,342 @@
+id,type,id_name,follower_tsd,Hauptmedium,Umsatz,Standort
+1,1,ALL IMPACT Management,0,NA,0,Nordrhein Westfalen
+2,1,Krueger_Rizzi Management,0,NA,0,Rheinland Pfalz
+3,1,MOONGENCY,0,NA,0,Hamburg
+4,1,fourfour Studio,0,NA,0,Berlin
+5,1,fyndafit,0,NA,0,Berlin
+6,1,ReachOn,0,NA,0,Hessen
+7,1,Rocks Agency,0,NA,0,Nordrhein Westfalen
+8,1,StudioSEVENONE,0,NA,0,Berlin
+9,1,lookfamed,0,NA,0,Niedersachsen
+10,1,Social Media One,0,NA,0,Nordrhein Westfalen
+11,2,More Nutrition,0,NA,700,Schleswig Holstein
+12,2,ESN,0,NA,700,Schleswig Holstein
+13,2,Gymqueen,0,NA,143,Bayern
+14,2,KoRo Handels GmbH,0,NA,117,Berlin
+15,2,foodspring,0,NA,84,Berlin
+16,2,Bodylab,0,NA,143,Bayern
+17,2,Naturally Pam,0,NA,0,Hamburg
+18,1,SportsCreate Agency,0,NA,0,Nordrhein Westfalen
+19,3,NA,0,NA,0,NA
+20,3,NA,0,NA,0,NA
+21,3,NA,0,NA,0,NA
+22,3,NA,0,NA,0,NA
+23,3,NA,0,NA,0,NA
+24,3,NA,0,NA,0,NA
+25,3,NA,0,NA,0,NA
+26,3,NA,0,NA,0,NA
+27,3,NA,0,NA,0,NA
+28,3,NA,0,NA,0,NA
+29,3,NA,0,NA,0,NA
+30,3,MinimaLara,713,tiktok,0,Nordrhein Westfalen
+31,3,Maxine Reuker,146,instagram,0,Berlin
+32,3,julesboringlife,6900,tiktok,0,Baden Wuerttemberg
+33,3,paula_doeringer,544,instagram,0,Nordrhein Westfalen
+34,3,mariomller,383,instagram,0,Baden Wuerttemberg
+35,3,fitgreenmind,4000,instagram,0,Saarland
+36,3,Sturmwaffel,1970,youtube,0,Nordrhein Westfalen
+37,3,pamela_rf,9100,instagram,0,Baden Wuerttemberg
+38,3,biancazapatka,727,instagram,0,Nordrhein Westfalen
+39,3,sallyswelt,1200,instagram,0,Baden Wuerttemberg
+40,3,simondesue,1900,instagram,0,Dubai UAE
+41,3,julesbikini,33,instagram,0,Baden Wuerttemberg
+42,3,kloppo,4600,instagram,0,Baden Wuerttemberg
+43,3,billkaulitz,2000,instagram,0,USA
+44,3,lisa_msw_ifbbpro,43,instagram,0,NA
+45,3,shirindavid,6600,instagram,0,Nordrhein Westfalen
+46,3,twentyFOURtim,5300,tiktok,0,Nordrhein Westfalen
+47,3,dielochis,154,instagram,0,Hessen
+48,3,aarontroschke,315,youtube,0,Berlin
+49,3,slavik_maFOUR,1200,instagram,0,Saarland
+50,3,Ben Bernschneider,439,instagram,0,Nordrhein Westfalen
+51,3,max echtso,1100,tiktok,0,Schleswig Holstein
+52,3,viktoriasarina,2060,youtube,0,Austria
+53,3,juliabeautx,4000,instagram,0,Nordrhein Westfalen
+54,3,lottastichler,480,instagram,0,Schweden
+55,3,julienbam,4900,instagram,0,Nordrhein Westfalen
+56,3,Iamzuckerpuppe,2200,tiktok,0,Berlin
+57,3,azure agency,0,NA,0,Nordrhein Westfalen
+58,3,alberto,195,instagram,0,Niedersachsen
+59,3,NA,0,NA,0,NA
+60,3,NA,0,NA,0,NA
+61,3,yilmazhummel,0,NA,0,Berlin
+62,3,getfitbyleo,56,instagram,0,NA
+63,3,sophiathiel,1300,instagram,0,Berlin
+64,3,paul_unterleitner,397,instagram,0,NA
+65,3,malika_babel,815,instagram,0,Berlin
+66,3,marceggers,327,instagram,0,Nordrhein Westfalen
+67,3,niko_rittenau,134,instagram,0,Liechtenstein
+68,3,leonie kommoss,123,instagram,0,Berlin
+69,3,NA,0,NA,0,NA
+70,3,NA,0,NA,0,NA
+71,3,NA,0,NA,0,NA
+72,1,PeoplesSquare GmbH,0,NA,0,Baden Wuerttemberg
+73,3,leaschlaefcke,8,instagram,0,NA
+74,3,NA,0,NA,0,NA
+75,3,lowcalorisa,128,instagram,0,NA
+76,3,nico_spedicato,408,instagram,0,NA
+77,2,Rocka Nutrition,0,NA,22,Berlin
+78,3,ramon_limacher,238,instagram,0,NA
+79,3,floriansimunovic,15,instagram,0,NA
+80,3,johnymuenster,1500,instagram,0,NA
+81,3,camillankenke,81,instagram,0,NA
+82,3,timrbtz,111,instagram,0,Nordrhein Westfalen
+83,3,christianwolf,1100,instagram,0,Kapstadt
+84,3,rominapalm,1000,instagram,0,Nordrhein Westfalen
+85,3,schmaleschulter,775,instagram,0,NA
+86,3,annabaldauf,217,instagram,0,NA
+87,3,bienesfitlife,569,instagram,0,NA
+88,3,pietheilker,153,instagram,0,NA
+89,3,lennart_felix,157,instagram,0,NA
+90,3,evasaischegg,236,instagram,0,Schweiz
+91,3,herstoryfeed,174,instagram,0,NA
+92,3,iqskitchen,242,instagram,0,NA
+93,3,lea_tntw,7,instagram,0,NA
+94,1,OHEY Artist Management,0,NA,0,Hamburg
+95,3,lucyfischer,252,instagram,0,Baden Wuerttemberg
+96,3,antoniaelena_official,1300,instagram,0,Bayern 
+97,3,jax vita,559,instagram,0,Nordrhein Westfalen
+98,3,aylinaphrodite,327,instagram,0,Baden Wuerttemberg
+99,3,edda elisa,239,instagram,0,NA
+100,1,One True Agency,0,NA,0,Berlin
+101,3,linadueren,359,instagram,0,Nordrhein Westfalen
+102,3,hannaahcarolina,206,instagram,0,Nordrhein Westfalen
+103,3,NA,0,NA,0,NA
+104,3,luisa tabbert,444,instagram,0,NA
+105,3,marenmorereal,88,instagram,0,NA
+106,3,louispannhorst,24,instagram,0,Niedersachsen
+107,3,vxtez,19,instagram,0,NA
+108,3,xculex,27,instagram,0,NA
+109,3,lexikar,28,instagram,0,NA
+110,3,madlensdiary,213,instagram,0,NA
+111,3,Frankly Agency,0,NA,0,Austria
+112,3,NA,0,NA,0,NA
+113,3,NA,0,NA,0,NA
+114,3,esmuellert,14700,instagram,0,Bayern
+115,3,wesleyvissers,1000,instagram,0,Niederlande
+116,3,karlessdotcom,350,youtube,0,Baden Wuerttemberg
+117,3,laserluca,4100,instagram,0,Nordrhein Westfalen
+118,3,lisa_msw_ibbpro,43,instagram,0,NA
+119,3,NA,0,NA,0,NA
+120,3,NA,0,NA,0,NA
+121,3,jessicaabock,320,instagram,0,Nordrhein Westfalen
+122,1,Social Groth Studio,0,NA,0,Schleswig Holstein
+123,3,tigerlariz,189,instagram,0,Nordrhein Westfalen
+124,3,gerdalewis,995,instagram,0,Nordrhein Westfalen
+125,3,growingannanas,1500,instagram,0,NA
+126,3,koelleforniagurl,192,instagram,0,Nordrhein Westfalen
+127,3,leaschreiner,245,instagram,0,NA
+128,3,nikasofie,1100,instagram,0,Bayern
+129,3,simongronau,91,instagram,0,Nordrhein Westfalen
+130,3,dennisgries,109,instagram,0,Bayern
+131,3,smartgains,231,instagram,0,NA
+132,3,denisemerten,304,instagram,0,NA
+133,3,trainingfabi,135,instagram,0,NA
+134,3,johannaalbeert,141,instagram,0,Nordrhein Westfalen
+135,1,StudioHealth Management,0,NA,0,Nordrhein Westfalen
+136,3,alinaristenpart,299,instagram,0,NA
+137,3,ms_nadineslife,292,instagram,0,NA
+138,3,domiwest,493,instagram,0,NA
+139,3,alinajochimsen,162,instagram,0,NA
+140,3,kikidoyouloveme,405,instagram,0,NA
+141,3,behaind,571,youtube,0,Berlin
+142,3,annastrainingstipps,95,instagram,0,Rheinland Pfalz
+143,3,stillchris,80,instagram,0,Nordrhein Westfalen
+144,3,willywillofficial,60,instagram,0,NA
+145,3,marvinconen,53,instagram,0,NA
+146,3,lukefithyrox,24,instagram,0,NA
+147,3,siegismund,333,youtube,0,Berlin
+148,3,chateaubriand,332,instagram,0,Hamburg
+149,3,NA,0,NA,0,NA
+150,3,ekofreezy,0,instagram,0,NA
+151,3,burak_kkr,80,instagram,0,NA
+152,3,evathuemling,189,instagram,0,NA
+153,3,annawillfrt,200,tiktok,0,NA
+154,3,NA,0,NA,0,NA
+155,3,celineftONE,68,instagram,0,NA
+156,3,vivaavanessa,46,instagram,0,NA
+157,3,sarahshealthylifestyle,221,instagram,0,NA
+158,3,susis_abnehmweg,311,instagram,0,USA
+159,3,alina_wi,58,instagram,0,NA
+160,2,zecplus,0,NA,0,Rheinland Pfalz
+161,3,faridbangbang,2600,instagram,0,Nordrhein Westfalen
+162,3,marvincalifornia,40,instagram,0,USA
+163,2,bodyattack,50,instagram,8,Hamburg
+164,3,lifewithlucaa,2,instagram,0,NA
+165,3,gymaggie_lifts,10,instagram,0,NA
+166,3,thebigbahSEVEN,8,instagram,0,NA
+167,3,king_owusuuu,18,instagram,0,NA
+168,3,taraa_talay,68,instagram,0,NA
+169,3,pumping_firefighter,35,instagram,0,NA
+170,3,alina_polonio,26,instagram,0,NA
+171,3,tinihadi_,50,instagram,0,NA
+172,3,max_balser,2,instagram,0,NA
+173,3,moritztellmann,21,instagram,0,NA
+174,3,liftwithannah,3,instagram,0,NA
+175,3,damianschreieck,5,instagram,0,NA
+176,3,constantin_eisenlohr,5,instagram,0,NA
+177,3,vietnamesegenetics,3,instagram,0,NA
+178,3,alina_vegan_foodie,13,instagram,0,Wien
+179,3,sandys_bunte_welt,17,instagram,0,Hessen
+180,3,mimi_lawrence_fitness,494,instagram,0,NA
+181,3,lisamarie_schlemm,14,instagram,0,Niedersachsen
+182,3,fitgreenmind,4000,instagram,0,Baden Wuerttemberg
+183,3,evan_klar,2,instagram,0,Berlin
+184,3,foodschau,229,tiktok,0,Baden Wuerttemberg
+185,3,yasemin_nils,715,tiktok,0,Hessen
+186,3,unterwegsmitjasmin,89,tiktok,0,Baden Wuerttemberg
+187,3,drogerie_blogger_pro,205,tiktok,0,NA
+188,3,_mascha_li,334,tiktok,0,NA
+189,3,diearsen,23,tiktok,0,NA
+190,3,fitbyhannah,162,tiktok,0,Baden Wuerttemberg
+191,3,plantbasedcouple,342,tiktok,0,Hamburg
+192,3,farah_anaya,29,tiktok,0,NA
+193,3,yxcvanessa,114,tiktok,0,Berlin
+194,3,tierfrei_check,57,instagram,0,Baden Wuerttemberg
+195,1,emi,0,NA,0,London
+196,1,soulcial,0,NA,0,Nordrhein Westfalen
+197,1,themakagency,0,NA,0,Niedersachsen
+198,3,NA,0,NA,0,NA
+199,1,boksi,0,NA,0,Hamburg
+200,3,kerimengizek,342,instagram,0,Nordrhein Westfalen
+201,3,jaqueline_sprIng,182,instagram,0,Thailand
+202,3,fabicze_ifbbpro,36,instagram,0,Baden Wuerttemberg
+203,3,coach_timbuyame,83,instagram,0,Hamburg
+204,3,andrinafit,342,instagram,0,Spanien Mallorca
+205,3,sharo_FOURFIVE,98,instagram,0,Nordrhein Westfalen
+206,3,xsraSIXTWO,33,instagram,0,Baden Wuerttemberg
+207,3,joleelove,141,instagram,0,Berlin
+208,3,b_lashONESEVENEIGHT,79,instagram,0,Berlin
+209,3,mcbogyFOURSIX,75,instagram,0,Berlin
+210,3,marcii_cze,36,instagram,0,Baden Wuerttemberg
+211,3,karsten_pfuetzenreuter,8,instagram,0,Spanien 
+212,3,massiv,1200,instagram,0,Berlin
+213,2,Weider Germany,0,NA,47,Hamburg
+214,2,Mammut Nutrition,0,NA,39,Sachsen
+215,2,Best Body Nutrition,0,NA,39,Sachsen
+216,2,Power Bar Europe GmbH,0,NA,45,Nordrhein Westfalen
+217,3,NA,0,NA,0,NA
+218,2,Layenberger,0,NA,20,Rheinland Pfalz
+219,2,kaygedan,214,instagram,0,Nordrhein Westfalen
+220,3,wencke_sperveslage,134,instagram,0,Niedersachsen
+221,3,camillankenke,81,instagram,0,Austria
+222,3,gymmitchiara,1,instagram,0,Nordrhein Westfalen
+223,3,veganfindsaustria,41,instagram,0,Austria
+224,3,lucahbl,395,instagram,0,Nordrhein Westfalen
+225,3,monawitt_,31,instagram,0,Bayern
+226,3,luisa_tabbert,441,instagram,0,Nordrhein Westfalen
+227,3,ronbielecki,522,instagram,0,Berlin
+228,3,marenmorereal,88,instagram,0,Baden Wuerttemberg
+229,3,pauuly,2,instagram,0,Nordrhein Westfalen
+230,3,lukas_liebing,47,instagram,0,Hamburg
+231,3,fabian_niessl,281,instagram,0,Bayern
+232,3,moritz_fiebig,43,instagram,0,NA
+233,3,max_rahm,8,instagram,0,Tirol
+234,3,samgolong,124,instagram,0,NA
+235,3,georgstrasser,13,instagram,0,Salzburg
+236,3,dionogorla,43,instagram,0,NA
+237,3,fredericfunkNEUNUNDSIEBZIG,40,instagram,0,NA
+238,3,lena_oberdorf,402,instagram,0,Bayern
+239,3,jonas_deichmann,310,instagram,0,NA
+240,3,leni_runner,274,instagram,0,NA
+241,3,johanna__ahrens,3,instagram,0,Bayern
+242,3,elisa_deutschmann,79,instagram,0,NA
+243,3,lea___maria,32,instagram,0,NA
+244,3,nele_ocik,74,instagram,0,NA
+245,3,takemetoalaska_,84,instagram,0,Tyrol
+246,3,daniel_herzi_herzog,10,instagram,0,NA
+247,3,ditaji_k,66,instagram,0,NA
+248,3,andreas_mies,21,instagram,0,NA
+249,3,juliaalinaschlr,441,instagram,0,NA
+250,3,marta_swiatlon,93,instagram,0,NA
+251,3,lars_wichert,8,instagram,0,NA
+252,3,linnkleine,5,instagram,0,Baden Wuerttemberg
+253,3,alishagra,16,instagram,0,NA
+254,3,antonia_somerhalder,4,instagram,0,NA
+255,3,lauri_kc,119,instagram,0,Hessen
+256,3,angelika_lagoda,33,instagram,0,NA
+257,3,bfitbyemma,3,instagram,0,NA
+258,3,nico_bachofner,1,instagram,0,NA
+259,3,debby_schoepe,6,instagram,0,Nordrhein Westfalen
+260,3,phil_mroONENINE,1,instagram,0,NA
+261,3,mrs_vickeey,68,instagram,0,Bayern
+262,3,lisa_sanftl,13,instagram,0,NA
+263,3,friedrichdennis_,11,instagram,0,NA
+264,3,swaggy_bodybuilding,2,instagram,0,Bayern
+265,3,antonialueck,2,instagram,0,NA
+266,3,marablech,1,youtube,0,NA
+267,3,reinerstimmler,35,instagram,0,NA
+268,3,christianleibhan,4,instagram,0,Baden Wuerrtemberg
+269,3,domibusek,4,instagram,0,NA
+270,3,tobro_NINESEVEN,4,instagram,0,NA
+271,3,michibovelet,5,instagram,0,Bayern
+272,3,cj_stephi,70,instagram,0,Nordrhein Westfalen
+273,3,simon_buh,2,instagram,0,Hessen
+274,3,pinkyinthegym,3,instagram,0,Nordrhein Westfalen
+275,3,teejay_davis,13,instagram,0,NA
+276,3,thereallittlemisshulk,3,instagram,0,Nordrhein Westfalen
+277,3,krisforfit,2,instagram,0,NA
+278,3,marco_proebster,9,instagram,0,Bayern
+279,3,thezaisers,261,instagram,0,Baden Wuerttemberg
+280,3,lisa_beck_ifbbpro,86,instagram,0,NA
+281,3,josanne_ifbb,5,instagram,0,Niederlande
+282,3,sarahhuber_fitness,10,instagram,0,NA
+283,3,_p_k_l_a_,11,instagram,0,NA
+284,3,tobi_worthEIGHTEIGHT,45,instagram,0,NA
+285,3,maria_shfr,40,instagram,0,NA
+286,3,kallonworld,52,instagram,0,NA
+287,3,fit_and_goodfood,5,instagram,0,NA
+288,3,goodvibes_sandra,28,instagram,0,Hessen
+289,3,fitfood_sarah,12,instagram,0,NA
+290,3,tinabambiiina,270,instagram,0,Baden Wuerttemberg
+291,3,franzis_gesunde_kueche,2,instagram,0,NA
+292,3,verena_steigner,36,instagram,0,Nordrhein Westfalen
+293,3,conny_schlling_,15,instagram,0,NA
+294,3,rebecca_leticia,2,instagram,0,Nordrhein Westfalen
+295,3,lisa_mieschke,104,instagram,0,Dubai
+296,3,vflbochum,161,instagram,0,NA
+297,3,srah_trpn,4,instagram,0,Nordrhein Westfalen
+298,3,g_deissi,1,instagram,0,NA
+299,3,selinacerci,137,instagram,0,Baden Wuerttemberg
+300,3,giuliagoesfit,239,instagram,0,NA
+301,3,mai_lan,115,instagram,0,Frankreich
+302,3,aliciasmd,5600,instagram,0,Brandenburg
+303,3,vanessastehler,108,instagram,0,Berlin
+304,3,juliette_xr,134,instagram,0,NA
+305,3,robin_raww,205,instagram,0,Nordrhein Westfalen
+306,3,lenaajoy,501,instagram,0,Baden Wuerttemberg
+307,3,julia_reppel,114,instagram,0,NA
+308,3,philipp_stehler,253,instagram,0,Berlin
+309,3,fitness_kaykay,405,instagram,0,NA
+310,3,anniju_,607,instagram,0,Nordrhein Westfalen
+311,3,adrienne_kolezar,496,instagram,0,NA
+312,3,piitn_,100,instagram,0,Bayern
+313,3,rebbsssssss,31,instagram,0,Italien
+314,3,p_gallucci,53,instagram,0,Italien
+315,3,steffi_hns,179,instagram,0,NA
+316,3,thefashionjogger,2600,instagram,0,NA
+317,3,matteorestivo,65,instagram,0,Italien
+318,3,james_middleton_,790,instagram,0,Vereintes Koenigreich
+319,3,sophiasky_,171,instagram,0,NA
+320,3,bellehutt,63,instagram,0,NA
+321,3,juliusise,184,instagram,0,Berlin
+322,3,trainhard_eatwell,126,instagram,0,Baden Wuerttemberg
+323,3,emi_dtr,151,instagram,0,Frankreich
+324,3,ornella_nicolosi,595,instagram,0,Frankreich
+325,3,healthywidy,49,instagram,0,Spanien
+326,3,petit_fit,1100,instagram,0,Spanien
+327,3,alizouTWOb,281,instagram,0,Frankreich
+328,3,patrickdossantosaveiro,179,instagram,0,NA
+329,3,soysupersara,424,instagram,0,Spanien
+330,3,cuoriveggie,395,instagram,0,Italien
+331,3,lorenayessir,72,instagram,0,Austria
+332,3,michellemisayo,4,instagram,0,NA
+333,3,martinmichelius,186,instagram,0,NA
+334,3,marylu_ly,86,instagram,0,NA
+335,3,lefloid,802,instagram,0,Berlin
+336,3,powlster_,45,instagram,0,Berlin
+337,3,derollikanal,50,instagram,0,Berlin
+338,3,danielamonida,168,instagram,0,NA
+339,3,angelo_carlucci,912,instagram,0,NA
+340,3,onlylennard,200,instagram,0,NA
+341,3,carol_enrico,51,instagram,0,Italien
