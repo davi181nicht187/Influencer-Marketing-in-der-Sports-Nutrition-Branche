@@ -18,11 +18,14 @@ Offizieller Name des Knotens (des Influencers)
 
 Besonderheiten:
 (Zahlen wurden in großbuchstaben Ausgeschrieben)
+
 (Punkte ".", oder andere Sonderzeichen wurden durch "_" ersetzt)
+
 (Wenn Influencer auf verschiedenen Plattformen den selben Namen besitzt, wurde am Ende ein "_" eingefügt)
 
 ### follower_tsd
 Followerzahl der Influencer in Tausend
+
 (Es wurden nur Influencer mit einer Followeranzahl von mindestens 1000 Followern (Wert von mindestens 1) berücksichtigt)
 
 ### Medium
@@ -36,6 +39,7 @@ Firmenstandort des Managements/der Unternehmen oder Wohnort der Influencer (Land
 
 ### Geschlecht
 0 = Keine zuordnung Möglich
+
 (Gruppenaccount, Vereine/Organisationen/Unternehmen, etc.)
 
 1 = männlich
