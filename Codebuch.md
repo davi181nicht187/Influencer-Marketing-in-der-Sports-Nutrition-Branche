@@ -29,12 +29,20 @@ Followerzahl der Influencer in Tausend
 Ausspielkanal der Influencerwerbung
 
 ### Umsatz
-Umsatz der Werbepartner in Millionen Euro
+Umsatz der Werbepartner(Marken) in Millionen Euro
 
 ### Standort
-Firmenstandort des Managements/der Unternehmen oder Wohnort der Influencer
+Firmenstandort des Managements/der Unternehmen oder Wohnort der Influencer (Land)
 
-Bundesland = in Deutschland, Land = außerhalb von Deutschland
+### Geschlecht
+0 = Keine zuordnung Möglich
+(Gruppenaccount, Vereine/Organisationen/Unternehmen, etc.)
+
+1 = männlich
+
+2 = Weiblich
+
+3 = divers
 
 ## Edgelist
 ### relationship
