@@ -1,5 +1,8 @@
 # Influencer-Marketing in der Sportsnutrition Branche
 
+Netzwerk = Ungerichtet
+
+
 ## Nodelist
 
 
