@@ -1,0 +1,158 @@
+---
+title: "annewill"
+author: "dh118, ss597"
+date: "2025-01-07"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(igraph)
+library(tidygraph)
+library(manynet)
+library(tidyverse)
+```
+
+# Netzwerk einlesen
+
+```{r Netzwerk einlesen}
+
+el <- read.csv("https://raw.githubusercontent.com/davi181nicht187/pretest/refs/heads/main/Edgelist%20beta2.csv", header=T, as.is=T, sep = ",")
+
+nl <- read.csv("https://raw.githubusercontent.com/davi181nicht187/pretest/refs/heads/main/Nodelist%20beta2.csv", header=T, as.is=T, sep = ",")
+
+el
+
+nl
+
+```
+
+
+# Netzwerk erstellen
+
+```{r Netzwerk erstellen}
+
+pre <- tbl_graph(nodes = nl, edges = el, directed = FALSE)
+
+pre
+
+ims <- tbl_graph(nodes = nl, edges = el, directed = FALSE)
+ims
+
+imsc <- tbl_graph(nodes = nl, edges = el, directed = FALSE)
+imsc
+
+```
+```{r}
+# Degree (Welcher Knoten hat die meisten Kanten?
+pre_deg <- degree(pre, mode="all")
+pre_deg
+
+# Betweenness (Wie gut verbindet der Knoten andere?)
+pre_betw <- betweenness(pre, normalized=TRUE)
+pre_betw
+
+# Closeness (Sind die Alteri gut vernetzt?)
+pre_clos <- closeness(pre, normalized=TRUE)
+pre_clos
+
+```
+
+```{r}
+pre_comp <- tibble(
+  id = V(pre)$id, # nimmt die Werte aus der Spalte id der nodelist
+  name = V(pre)$id_name, # nimmt die Werte aus der Spalte name_first der Nodelist
+  degree = pre_deg,
+  closeness = pre_clos,
+  betweenness = pre_betw)
+pre_comp
+```
+
+
+
+```{r}
+V(pre)$color <- case_when(
+V(pre)$type == 1 ~ "red",
+V(pre)$type == 2 ~ "lightblue",
+V(pre)$Geschlecht == 1 ~ "pink",
+V(pre)$Geschlecht == 2 ~ "blue") 
+
+V(pre)[V(pre)$type == 2]$shape <- "square"
+V(pre)[V(pre)$type == 3]$shape <- "circle"  
+V(pre)[V(pre)$type == 1]$shape <- "csquare"
+```
+
+
+```{r Visualisierung,fig.height=9, fig.width=16}
+plot(pre,
+   layout=layout_nicely,
+   vertex.size = pre_deg/10,
+  main="Beta"
+  )
+```
+```{r Visualisierung,fig.height=9, fig.width=16}
+pre50 <- pre %>% 
+  activate(nodes) %>% 
+  filter(follower_tsd > 49 | follower_tsd == 0)
+pre50
+
+plot(pre50,
+   layout=layout_nicely,
+   vertex.size = pre_deg/10,
+  main="Beta")
+```
+```{r Visualisierung,fig.height=9, fig.width=16}
+pre100 <- pre %>% 
+  activate(nodes) %>% 
+  filter(follower_tsd > 99 | follower_tsd == 0)
+pre100
+
+plot(pre100,
+   layout=layout_nicely,
+   vertex.size = pre_deg/10,
+  main="Beta")
+```
+
+
+
+```{r}
+esn <- make_ego_graph(pre, order = 2, nodes = V(pre)$id == 12, mode = "all")
+esn <- esn[[1]]
+
+np <- make_ego_graph(pre, order = 2, nodes = V(pre)$id == 12, mode = "all")
+np <- esn[[1]]
+
+```
+
+```{r Visualisierung,fig.height=9, fig.width=16}
+plot(esn,
+     asp=1.5)
+```
+
+```{r}
+par(mfrow = c(1,2)) # ermöglicht zwei Abbildungen parallel zu setzen
+set.seed = 123
+
+plot(esn,
+     asp=1.5)
+
+plot(np,
+     asp = 0)
+```
+
+
+
+
+
+
+# codebuch und Zeitaufwand
+```{r}
+"https://github.com/davi181nicht187/pretest/blob/main/Codebuch.md" #codebuch
+
+zSNA1 <- read.csv("https://raw.githubusercontent.com/davi181nicht187/pretest/refs/heads/main/Zeitaufwand%20Gruppe1%20-%20Tabellenblatt1.csv", header=T, as.is=T, sep = ",") #Zeitaufwand
+
+zSNA1
+```
+
+
