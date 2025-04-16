@@ -4,11 +4,11 @@ id,type,id_name,follower_tsd,Hauptmedium,Umsatz,Standort,Geschlecht
 3,1,MOONGENCY,0,NA,0,Deutschland,0
 4,1,fourfour Studio,0,NA,0,Deutschland,0
 5,1,fyndafit,0,NA,0,Deutschland,0
-6,0,jan_stuehmer,586,instagram,0,Deutschland,1
-7,0,julien_brueske,24,instagram,0,Deutschland,1
+6,3,jan_stuehmer,586,instagram,0,Deutschland,1
+7,3,julien_brueske,24,instagram,0,Deutschland,1
 8,1,StudioSEVENONE,0,NA,0,Deutschland,0
-9,0,kim_ic,148,instagram,0,Deutschland,2
-10,0,gabrielkelly_official,126,instagram,0,Deutschland,1
+9,3,kim_ic,148,instagram,0,Deutschland,2
+10,3,gabrielkelly_official,126,instagram,0,Deutschland,1
 11,2,More Nutrition,0,NA,700,Deutschland,0
 12,2,ESN,0,NA,700,Deutschland,0
 13,2,Gymqueen,0,NA,143,Deutschland,0
@@ -194,7 +194,7 @@ id,type,id_name,follower_tsd,Hauptmedium,Umsatz,Standort,Geschlecht
 193,3,yxcvanessa,114,tiktok,0,Deutschland,2
 194,3,tierfrei_check,57,instagram,0,Deutschland,0
 195,1,emi,0,NA,0,Vereintes Koenigreich,0
-196,0,cindy_roleder,0,instagram,0,Deutschland,2
+196,3,cindy_roleder,0,instagram,0,Deutschland,2
 197,1,themakagency,0,NA,0,Deutschland,0
 198,3,rvbengarcia,1500,instagram,0,Spanien,1
 199,1,boksi,0,NA,0,Deutschland,0
