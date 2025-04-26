@@ -18,9 +18,9 @@ library(tidyverse)
 
 ```{r Netzwerk einlesen}
 
-el <- read.csv("https://raw.githubusercontent.com/davi181nicht187/pretest/refs/heads/main/Edgelist%20beta2.csv", header=T, as.is=T, sep = ",")
+el <- read.csv("https://raw.githubusercontent.com/davi181nicht187/pretest/refs/heads/main/Edgelist%204.0%20beta.csv", header=T, as.is=T, sep = ",")
 
-nl <- read.csv("https://raw.githubusercontent.com/davi181nicht187/pretest/refs/heads/main/Nodelist%20beta2.csv", header=T, as.is=T, sep = ",")
+nl <- read.csv("https://raw.githubusercontent.com/davi181nicht187/pretest/refs/heads/main/Nodelist%204%2C0%20beta.csv", header=T, as.is=T, sep = ",")
 
 el
 
@@ -44,6 +44,38 @@ imsc <- tbl_graph(nodes = nl, edges = el, directed = FALSE)
 imsc
 
 ```
+```{r}
+count_components (pre)
+
+# Wie "dicht" ist das Netzwerk?
+edge_density(pre)
+
+# Dichte des Netzwerks als Prozentwert
+dichte <- edge_density(pre)*100
+dichte
+
+# Dichte gerundet
+dichte_rounded <- round(dichte, digits = 2)
+dichte_rounded
+
+# Dichte etwas eleganter berechnet
+
+s_density <- pre %>% 
+  edge_density()*100
+s_density
+
+# Durchschnittliche Pfaddistanz: wie viele Schritte zwischen den Knoten
+mean_distance(pre)
+
+# Reziprozität (abhängig von Richtung des Netzwerks!)
+reciprocity(pre)
+
+vcount(pre)
+
+ecount(pre)
+```
+
+
 ```{r}
 # Degree (Welcher Knoten hat die meisten Kanten?
 pre_deg <- degree(pre, mode="all")
@@ -75,8 +107,8 @@ pre_comp
 V(pre)$color <- case_when(
 V(pre)$type == 1 ~ "red",
 V(pre)$type == 2 ~ "lightblue",
-V(pre)$Geschlecht == 1 ~ "pink",
-V(pre)$Geschlecht == 2 ~ "blue") 
+V(pre)$Geschlecht == 2 ~ "pink",
+V(pre)$Geschlecht == 1 ~ "blue") 
 
 V(pre)[V(pre)$type == 2]$shape <- "square"
 V(pre)[V(pre)$type == 3]$shape <- "circle"  
@@ -120,29 +152,77 @@ plot(pre100,
 esn <- make_ego_graph(pre, order = 2, nodes = V(pre)$id == 12, mode = "all")
 esn <- esn[[1]]
 
-np <- make_ego_graph(pre, order = 2, nodes = V(pre)$id == 12, mode = "all")
-np <- esn[[1]]
+np <- make_ego_graph(pre, order = 1, nodes = V(pre)$id == 17, mode = "all")
+np <- np[[1]]
+
+vcount(esn)
+
+ecount(esn)
 
 ```
+
 
 ```{r Visualisierung,fig.height=9, fig.width=16}
 plot(esn,
      asp=1.5)
 ```
 
-```{r}
+
+```{r Visualisierung,fig.height=9, fig.width=16}
 par(mfrow = c(1,2)) # ermöglicht zwei Abbildungen parallel zu setzen
 set.seed = 123
 
 plot(esn,
-     asp=1.5)
+     asp=1.5,
+     main="ESN/MORE Nutrition")
 
 plot(np,
-     asp = 0)
+     asp = 0,
+     main="Naturally Pam")
+```
+```{r}
+V(ims)$color <- case_when(
+V(ims)$Standort == "Deutschland" ~ "red",
+V(ims)$Standort== "Austria" ~ "pink",
+V(ims)$Standort == "Frankreich" ~ "blue",
+V(ims)$Standort == "Vereintes Koenigreich" ~ "yellow",
+V(ims)$Standort == "Italien" ~ "green",
+V(ims)$Standort == "Spanien" ~ "darkgreen",
+V(ims)$Standort == "UAE" ~ "black",
+V(ims)$Standort == "USA" ~ "lightblue",
+V(ims)$Standort == "Niederlande" ~ "orange",
+V(ims)$Standort == "Schweiz" ~ "brown") 
+
+V(ims)[V(ims)$type == 2]$shape <- "square"
+V(ims)[V(ims)$type == 3]$shape <- "circle"  
+V(ims)[V(ims)$type == 1]$shape <- "csquare"
+```
+
+```{r}
+esn2 <- make_ego_graph(ims, order = 2, nodes = V(ims)$id == 12, mode = "all")
+esn2 <- esn2[[1]]
+
+fs <- make_ego_graph(ims, order = 2, nodes = V(ims)$id == 15, mode = "all")
+fs<- fs[[1]]
+
+vcount(fs)
+
+ecount(fs)
 ```
 
 
+```{r Visualisierung,fig.height=9, fig.width=16}
+par(mfrow = c(1,2)) # ermöglicht zwei Abbildungen parallel zu setzen
+set.seed = 123
 
+plot(esn2,
+     asp=1.5,
+     main="ESN/MORE Nutrition")
+
+plot(fs,
+     asp = 0,
+     main="Foodspring")
+```
 
 
 
