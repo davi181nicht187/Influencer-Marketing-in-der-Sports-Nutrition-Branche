@@ -1,0 +1,311 @@
+---
+title: "annewill"
+author: "dh118, ss597"
+date: "2025-01-07"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(igraph)
+library(tidygraph)
+library(manynet)
+library(tidyverse)
+```
+
+# Netzwerk einlesen
+
+```{r Netzwerk einlesen}
+
+el <- read.csv("https://raw.githubusercontent.com/davi181nicht187/pretest/refs/heads/main/Edgelist%204.0%20beta.csv", header=T, as.is=T, sep = ",")
+
+nl <- read.csv("https://raw.githubusercontent.com/davi181nicht187/pretest/refs/heads/main/Nodelist%204%2C0%20beta.csv", header=T, as.is=T, sep = ",")
+
+el
+
+nl
+
+```
+
+
+# Netzwerk erstellen
+
+```{r Netzwerk erstellen}
+
+pre <- tbl_graph(nodes = nl, edges = el, directed = FALSE)
+
+pre
+
+ims <- tbl_graph(nodes = nl, edges = el, directed = FALSE)
+ims
+
+imsc <- tbl_graph(nodes = nl, edges = el, directed = FALSE)
+imsc
+
+```
+```{r}
+count_components (pre)
+
+# Wie "dicht" ist das Netzwerk?
+edge_density(pre)
+
+# Dichte des Netzwerks als Prozentwert
+dichte <- edge_density(pre)*100
+dichte
+
+# Dichte gerundet
+dichte_rounded <- round(dichte, digits = 2)
+dichte_rounded
+
+# Dichte etwas eleganter berechnet
+
+s_density <- pre %>% 
+  edge_density()*100
+s_density
+
+# Durchschnittliche Pfaddistanz: wie viele Schritte zwischen den Knoten
+mean_distance(pre)
+
+vcount(pre)
+
+ecount(pre)
+```
+
+
+```{r}
+# Degree (Welcher Knoten hat die meisten Kanten?
+pre_deg <- degree(pre, mode="all")
+pre_deg
+
+# Betweenness (Wie gut verbindet der Knoten andere?)
+pre_betw <- betweenness(pre, normalized=TRUE)
+pre_betw
+
+# Closeness (Sind die Alteri gut vernetzt?)
+pre_clos <- closeness(pre, normalized=TRUE)
+pre_clos
+
+```
+
+```{r}
+pre_comp <- tibble(
+  id = V(pre)$id, # nimmt die Werte aus der Spalte id der nodelist
+  name = V(pre)$id_name, # nimmt die Werte aus der Spalte name_first der Nodelist
+  degree = pre_deg,
+  closeness = pre_clos,
+  betweenness = pre_betw)
+pre_comp
+```
+
+
+
+```{r}
+V(pre)$color <- case_when(
+V(pre)$type == 1 ~ "red",
+V(pre)$type == 2 ~ "lightblue",
+V(pre)$Geschlecht == 2 ~ "pink",
+V(pre)$Geschlecht == 1 ~ "blue") 
+
+V(pre)[V(pre)$type == 2]$shape <- "square"
+V(pre)[V(pre)$type == 3]$shape <- "circle"  
+V(pre)[V(pre)$type == 1]$shape <- "csquare"
+```
+
+
+```{r Visualisierung,fig.height=18, fig.width=32}
+plot(pre,
+   layout=layout_nicely,
+   vertex.size = 3,
+  main="Influencer-Marketing in der Sportsnutrition Branche"
+  )
+```
+```{r}
+preMen <- pre %>% 
+  activate(nodes) %>% 
+  filter(Geschlecht == 1 | Geschlecht == 0)
+preMen
+
+preWomen <- pre %>% 
+  activate(nodes) %>% 
+  filter(Geschlecht == 2 | Geschlecht == 0)
+preWomen
+
+vcount(preMen)
+vcount(preWomen)
+```
+```{r Visualisierung,fig.height=18, fig.width=32}
+plot(preMen,
+   layout=layout_nicely,
+   vertex.size = 4,
+  main="Influencer-Marketing in der Sportsnutrition Branche")
+  
+plot(preWomen,
+   layout=layout_nicely,
+   vertex.size = 4,
+  main="Influencer-Marketing in der Sportsnutrition Branche")
+
+```
+
+
+```{r}
+pre10 <- pre %>% 
+  activate(nodes) %>% 
+  filter(follower_tsd > 9 | follower_tsd == 0)
+pre10
+
+pre100 <- pre %>% 
+  activate(nodes) %>% 
+  filter(follower_tsd > 99 | follower_tsd == 0)
+pre100
+
+pre1M <- pre %>% 
+  activate(nodes) %>% 
+  filter(follower_tsd > 999 | follower_tsd == 0) |>
+  filter(type > 1)
+pre1M
+
+vcount(pre10)
+ecount(pre10)
+
+vcount(pre100)
+ecount(pre100)
+
+vcount(pre1M)
+ecount(pre1M)
+```
+
+```{r Visualisierung,fig.height=9, fig.width=16}
+plot(pre10,
+   layout=layout_nicely,
+   vertex.size = 4,
+  main="Influencer-Marketing in der Sportsnutrition Branche")
+  
+plot(pre100,
+   layout=layout_nicely,
+   vertex.size = 6,
+  main="Influencer-Marketing in der Sportsnutrition Branche")
+  
+plot(pre1M,
+   layout=layout_nicely,
+   vertex.size = 6,
+  main="Influencer-Marketing in der Sportsnutrition Branche") 
+```
+
+
+```{r}
+esn <- make_ego_graph(pre, order = 2, nodes = V(pre)$id == 12, mode = "all")
+esn <- esn[[1]]
+
+np <- make_ego_graph(pre, order = 1, nodes = V(pre)$id == 17, mode = "all")
+np <- np[[1]]
+
+MaN <- make_ego_graph(pre, order = 2, nodes = V(pre)$id == 214, mode = "all")
+MaN <- MaN[[1]]
+
+
+vcount(esn)
+ecount(esn)
+
+vcount(MaN)
+ecount(MaN)
+```
+
+
+```{r Visualisierung,fig.height=9, fig.width=16}
+plot(esn,
+     asp=1.5,
+     vertex.size = 5)
+
+plot(MaN,
+     asp=1.5,
+     vertex.size = 5)
+```
+
+
+```{r Visualisierung,fig.height=9, fig.width=16}
+par(mfrow = c(1,2)) # ermöglicht zwei Abbildungen parallel zu setzen
+set.seed = 123
+
+plot(esn,
+     asp=1.5,
+     vertex.size = 8,
+     main="ESN/MORE Nutrition")
+
+plot(np,
+     asp = 0,
+     vertex.size = 12,
+     main="Naturally Pam")
+```
+```{r Visualisierung,fig.height=9, fig.width=16}
+par(mfrow = c(1,2)) # ermöglicht zwei Abbildungen parallel zu setzen
+set.seed = 123
+
+plot(esn,
+     asp=1.5,
+     vertex.size = 8,
+     main="ESN/MORE Nutrition")
+
+plot(MaN,
+     asp = 0,
+     vertex.size = 8,
+     main="Mammut Nutrition/Best Body Nutrition")
+```
+
+```{r}
+V(ims)$color <- case_when(
+V(ims)$Standort == "Deutschland" ~ "red",
+V(ims)$Standort== "Austria" ~ "pink",
+V(ims)$Standort == "Frankreich" ~ "blue",
+V(ims)$Standort == "Vereintes Koenigreich" ~ "yellow",
+V(ims)$Standort == "Italien" ~ "green",
+V(ims)$Standort == "Spanien" ~ "darkgreen",
+V(ims)$Standort == "UAE" ~ "black",
+V(ims)$Standort == "USA" ~ "lightblue",
+V(ims)$Standort == "Niederlande" ~ "orange",
+V(ims)$Standort == "Schweiz" ~ "brown") 
+
+V(ims)[V(ims)$type == 2]$shape <- "square"
+V(ims)[V(ims)$type == 3]$shape <- "circle"  
+V(ims)[V(ims)$type == 1]$shape <- "csquare"
+```
+
+```{r}
+esn2 <- make_ego_graph(ims, order = 2, nodes = V(ims)$id == 12, mode = "all")
+esn2 <- esn2[[1]]
+
+fs <- make_ego_graph(ims, order = 2, nodes = V(ims)$id == 15, mode = "all")
+fs<- fs[[1]]
+
+vcount(fs)
+
+ecount(fs)
+```
+
+
+```{r Visualisierung,fig.height=9, fig.width=16}
+par(mfrow = c(1,2)) # ermöglicht zwei Abbildungen parallel zu setzen
+set.seed = 123
+
+plot(esn2,
+     asp=1.5,
+     vertex.size = 9,
+     main="ESN/MORE Nutrition")
+
+plot(fs,
+     asp = 0,
+     main="Foodspring")
+```
+
+
+
+# codebuch und Zeitaufwand
+```{r}
+"https://github.com/davi181nicht187/pretest/blob/main/Codebuch.md" #codebuch
+
+zSNA1 <- read.csv("https://raw.githubusercontent.com/davi181nicht187/pretest/refs/heads/main/Zeitaufwand%20Gruppe1%20-%20Tabellenblatt1.csv", header=T, as.is=T, sep = ",") #Zeitaufwand
+
+zSNA1
+```
+
+
