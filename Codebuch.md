@@ -35,7 +35,7 @@ Followerzahl der Influencer in Tausend
 (Es wurden nur Influencer mit einer Followeranzahl von mindestens 1000 Followern (Wert von mindestens 1) berücksichtigt)
 
 
-### Medium
+### Hauptmedium
 Ausspielkanal der Influencerwerbung
 
 
