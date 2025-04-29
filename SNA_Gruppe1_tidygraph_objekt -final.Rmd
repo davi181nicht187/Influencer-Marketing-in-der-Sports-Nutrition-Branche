@@ -1,0 +1,349 @@
+---
+title: "Influencer-Marketing in der Sportsnutrition Branche"
+author: "dh118, ss597,"
+date: "2025-01-07"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+
+library(igraph)
+library(tidygraph)
+library(manynet)
+library(tidyverse)
+library(dplyr)
+library(tinytex)
+```
+# Ab hier kopieren Schatz
+
+# Netzwerk einlesen und erstellen
+
+Zunächst wurde die Node- und Edgelist aus GitHub in R importiert. Auf dieser Grundlage entstanden drei identische Netzwerke (pre, ims und imsc), die jeweils für unterschiedliche Visualisierungszwecke verwendet wurden. Das ursprüngliche Netzwerk ist ungerichtet.
+
+```{r Netzwerk einlesen, include=FALSE}
+# Netzwerk einlesen
+el <- read.csv("https://raw.githubusercontent.com/davi181nicht187/Influencer-Marketing-in-der-Sports-Nutrition-Branche/refs/heads/main/Edgelist.csv", header=T, as.is=T, sep = ",")
+
+nl <- read.csv("https://raw.githubusercontent.com/davi181nicht187/Influencer-Marketing-in-der-Sports-Nutrition-Branche/refs/heads/main/Nodelist.csv", header=T, as.is=T, sep = ",")
+
+el
+
+nl
+
+```
+
+```{r Netzwerk erstellen, include=FALSE}
+# Netzwerk erstellen
+pre <- tbl_graph(nodes = nl, edges = el, directed = FALSE)
+print(pre)
+
+ims <- tbl_graph(nodes = nl, edges = el, directed = FALSE)
+print(ims)
+
+imsc <- tbl_graph(nodes = nl, edges = el, directed = FALSE)
+print(imsc)
+
+```
+Im nächsten Schritt wurden grundlegende Netzwerkmetriken berechnet. Dabei zeigte sich: Das Netzwerk weist eine Dichte von 0,00364 (0,3%) auf. Die durchschnittliche Pfadlänge beträgt etwa 4,03. Insgesamt besteht das ursprüngliche Netzwerk aus 586 Knoten und 624 Kanten.
+
+```{r grundlegende Netzwerkmetriken}
+# Wie "dicht" ist das Netzwerk?
+print(edge_density(pre))
+
+# Dichte des Netzwerks als Prozentwert
+dichte <- edge_density(pre)*100
+print(dichte)
+
+# Dichte gerundet
+dichte_rounded <- round(dichte, digits = 2)
+print(dichte_rounded)
+
+# Durchschnittliche Pfaddistanz: wie viele Schritte zwischen den Knoten
+print(mean_distance(pre))
+
+# Knotenanzahl
+print(vcount(pre))
+
+# Kantenanzahl
+print(ecount(pre))
+```
+Zur Identifikation der zentralsten Knoten wurde eine neue Tabelle erstellt, die die Metriken Degree (Anzahl der Verbindungen), Betweenness (Vermittlungsposition im Netzwerk) und Closeness (Netzwerknähe) enthält. Die fünf Knoten mit den höchsten Degree-Werten sind: ESN (143), More Nutrition (98), foodspring (84), Mammut Nutrition (42) und Rocka Nutrition (35). Wichtig zu beachten ist, dass ESN und More Nutrition demselben Unternehmen angehören. Die Analyse zeigt: Diese beiden Marken sind nicht nur am stärksten vernetzt, sondern erzielen auch den höchsten Umsatz.
+```{r Identifikation der zentralsten Knoten, include=FALSE}
+# Degree: Welcher Knoten hat die meisten Kanten?
+pre_deg <- degree(pre, mode="all")
+print(pre_deg)
+
+# Betweenness: Wie gut verbindet der Knoten andere?
+pre_betw <- betweenness(pre, normalized=TRUE)
+print(pre_betw)
+
+# Closeness: Sind die Knoten gut vernetzt?
+pre_clos <- closeness(pre, normalized=TRUE)
+print(pre_clos)
+
+```
+
+```{r Identifikation der zentralsten Knoten_, include=FALSE}
+pre_comp <- tibble(
+  id = V(pre)$id, # nimmt die Werte aus der Spalte id der nodelist
+  name = V(pre)$id_name, # nimmt die Werte aus der Spalte name_first der Nodelist
+  degree = pre_deg,
+  closeness = pre_clos,
+  betweenness = pre_betw)
+print(pre_comp)
+
+pre_comp |>
+  as_tibble() |>
+  summarise(
+    durchschnitt_betweenness = mean(betweenness, na.rm = TRUE),
+    durchschnitt_closeness = mean(closeness, na.rm = TRUE)
+  )
+
+pre_comp |>
+  arrange(desc(degree))
+
+```
+Im Anschluss wurden die drei Netzwerke mit jeweils spezifischen Visualisierungsparametern versehen, um unterschiedliche inhaltliche Aspekte herauszuarbeiten. Im ersten Netzwerk (pre) lag der Fokus auf der Darstellung der Geschlechterverteilung unter den Influencerinnen. Die Knoten wurden farblich differenziert: rot = Agenturen, hellblau = Marken, pink = weibliche Influencerinnen, blau = männliche Influencer. Zusätzlich wurden Influencerinnen durch Kreise dargestellt, während Marken und Agenturen in Form von Vierecken visualisiert wurden. Das zweite Netzwerk (ims) konzentriert sich auf den geografischen Standort der Influencer*innen.
+
+Die geografischen Standorte im zweiten Netzwerk wurden durch folgende Farben visualisiert: Deutschland/Österreich/Schweiz = rot/pink/braun, Frankreich = blau, Spanien = dunkelgrün, Italien = grün, Vereinigtes Königreich = gelb, Niederlande = orange, USA = hellblau, VAE = schwarz. Alle weiteren Länder bzw. nicht zuordenbaren (NA) wurden in weiß dargestellt. Die grafische Differenzierung der Akteure blieb erhalten: Influencerinnen als Kreise, Marken als Vierecke und Agenturen diesmal als Rechtecke.
+
+Das dritte Netzwerk zeigt die Plattformen, über die Influencerinnen ihre Inhalte verbreiten.Die Plattformzugehörigkeit der Influencerinnen wurde folgendermaßen farblich codiert: YouTube = rot, TikTok = gelb, Instagram = orange und Facebook = blau. Zusätzlich wurden die Knotentypen durch unterschiedliche Formen visualisiert: Influencerinnen als Kreise, Marken als Vierecke und Agenturen als Rechtecke.
+```{r Darstellung Netzwerk eins, include=FALSE}
+V(pre)$color <- case_when(
+V(pre)$type == 1 ~ "red",
+V(pre)$type == 2 ~ "lightblue",
+V(pre)$Geschlecht == 2 ~ "pink",
+V(pre)$Geschlecht == 1 ~ "blue") 
+
+V(pre)[V(pre)$type == 2]$shape <- "square"
+V(pre)[V(pre)$type == 3]$shape <- "circle"  
+V(pre)[V(pre)$type == 1]$shape <- "csquare"
+```
+
+```{r Darstellung Netzwerk zwei, include=FALSE}
+V(ims)$color <- case_when(
+V(ims)$Standort == "Deutschland" ~ "red",
+V(ims)$Standort== "Austria" ~ "pink",
+V(ims)$Standort == "Frankreich" ~ "blue",
+V(ims)$Standort == "Vereintes Koenigreich" ~ "yellow",
+V(ims)$Standort == "Italien" ~ "green",
+V(ims)$Standort == "Spanien" ~ "darkgreen",
+V(ims)$Standort == "UAE" ~ "black",
+V(ims)$Standort == "USA" ~ "lightblue",
+V(ims)$Standort == "Niederlande" ~ "orange",
+V(ims)$Standort == "Schweiz" ~ "brown") 
+
+V(ims)[V(ims)$type == 2]$shape <- "square"
+V(ims)[V(ims)$type == 3]$shape <- "circle"  
+V(ims)[V(ims)$type == 1]$shape <- "rectangle"
+```
+
+```{r Darstellung Netzwerk drei, include=FALSE}
+V(imsc)$color <- case_when(
+V(imsc)$type == 2 ~ "lightblue")
+
+V(imsc)$color <- case_when(
+V(imsc)$Hauptmedium == "youtube" ~ "red",
+V(imsc)$Hauptmedium== "instagram" ~ "orange",
+V(imsc)$Hauptmedium == "facebook" ~ "blue",
+V(imsc)$Hauptmedium == "tiktok" ~ "yellow",)
+
+V(imsc)[V(imsc)$type == 2]$shape <- "square"
+V(imsc)[V(imsc)$type == 3]$shape <- "circle"  
+V(imsc)[V(imsc)$type == 1]$shape <- "circle"
+```
+
+
+Nach Festlegung der Visualisierungsparameter wurden die Netzwerke grafisch dargestellt. Im ersten Netzwerk lässt sich ablesen, dass sich der Anteil von männlichen und weiblichen Influencerinnen je nach Marke unterscheidet. Bei Marken wie More Nutrition, foodspring, Layenberger, Gymqueen und KoRo ist der Anteil weiblicher Influencerinnen leicht bis deutlich höher. Rocka Nutrition hingegen ist die einzige Marke, bei der der Männeranteil signifikant überwiegt. Insgesamt zeigt sich eine klare Tendenz: Mit 316 weiblichen gegenüber 212 männlichen Influencerinnen ist die weibliche Repräsentation im Netzwerk dominierend.
+
+Im zweiten Netzwerk fällt insbesondere foodspring auf, da diese Marke – im Gegensatz zu den anderen – einen deutlich stärkeren Fokus auf internationale Influencerinnen legt. Mit Ausnahme von ESN beschränken sich die meisten anderen Marken auf deutschsprachige Kooperationspartnerinnen. Von insgesamt 586 Knoten konnten 369 eindeutig Deutschland zugeordnet werden.
+
+Bei dem dritten Netzwerk zeigt sich, dass instagram Mit 360 Knoten die bevorzugte Plattform ist, wenn es um Influencermarketing geht. TikTok ist mit 89 Knoten auf Platz zwei. Facebook ist mit 75 Knoten auf Platz 3 und zum Schluss kommt youtube mit 29 Knoten.
+
+```{r Visualisierung1, fig.height=18, fig.width=32}
+plot(pre,
+   layout=layout_nicely,
+   vertex.size = 3,
+  main="Influencer-Marketing in der Sportsnutrition Branche (Geschlechter)"
+  )
+
+plot(ims,
+   layout=layout_nicely,
+   vertex.size = 3,
+  main="Influencer-Marketing in der Sportsnutrition Branche (Standorte)"
+  )
+
+plot(imsc,
+   layout=layout_nicely,
+   vertex.size = 3,
+  main="Influencer-Marketing in der Sportsnutrition Branche (Plattformen)"
+  )
+```
+
+```{r Pull, fig.height=18, fig.width=32, include=FALSE}
+print(table(pre %>% activate(nodes) %>% as_tibble() %>% pull(Geschlecht)))
+print(table(ims %>% activate(nodes) %>% as_tibble() %>% pull(Standort)))
+print(table(imsc %>% activate(nodes) %>% as_tibble() %>% pull(Hauptmedium)))
+
+```
+
+In einem weiteren Schritt wurden zur Verdeutlichung der Geschlechterverhältnisse zwei Teilnetzwerke erstellt: eines ohne männliche, das andere ohne weibliche Influencer.
+```{r Geschlechterverhältnisse, include=FALSE}
+preMen <- pre %>% 
+  activate(nodes) %>% 
+  filter(Geschlecht == 1 | Geschlecht == 0)
+print(preMen)
+
+preWomen <- pre %>% 
+  activate(nodes) %>% 
+  filter(Geschlecht == 2 | Geschlecht == 0)
+print(preWomen)
+
+print(vcount(preMen))
+print(vcount(preWomen))
+```
+```{r Visualisierung2,fig.height=18, fig.width=32}
+plot(preMen,
+   layout=layout_nicely,
+   vertex.size = 4,
+  main="Influencer-Marketing in der Sportsnutrition Branche (Männer)")
+  
+plot(preWomen,
+   layout=layout_nicely,
+   vertex.size = 4,
+  main="Influencer-Marketing in der Sportsnutrition Branche (Frauen)")
+
+```
+Um den Einfluss der einzelnen Influencer zu analysieren, wurden drei weitere Teilnetzwerke generiert:
+pre10 umfasst Influencerinnen mit mindestens 10.000 Followern (Micro-Influencer),
+pre100 ab 100.000 Followern (Macro-Influencer),
+pre1M ab 1 Million Followern (Mega-Influencer).
+Die Analyse zeigt: Marken wie Layenberger, Power Bar, Mammut Nutrition und Gymqueen kooperieren mit keiner Mega-Influencerin bzw. keinem Mega-Influencer. Foodspring hingegen verzeichnet mit einem Degree-Wert von 7 die meisten Verbindungen zu dieser Kategorie.
+```{r Einfluss der einzelnen Influencer, include=FALSE}
+pre10 <- pre %>% 
+  activate(nodes) %>% 
+  filter(follower_tsd > 9 | follower_tsd == 0)
+print(pre10)
+
+pre100 <- pre %>% 
+  activate(nodes) %>% 
+  filter(follower_tsd > 99 | follower_tsd == 0)
+print(pre100)
+
+pre1M <- pre %>% 
+  activate(nodes) %>% 
+  filter(follower_tsd > 999 | follower_tsd == 0) |>
+  filter(type > 1)
+print(pre1M)
+
+print(vcount(pre10))
+print(ecount(pre10))
+
+print(vcount(pre100))
+print(ecount(pre100))
+
+print(vcount(pre1M))
+print(ecount(pre1M))
+```
+
+```{r Visualisierung3,fig.height=9, fig.width=16}
+plot(pre10,
+   layout=layout_nicely,
+   vertex.size = 4,
+  main="Influencer-Marketing in der Sportsnutrition Branche (Ab 10 Tsd. Follower)")
+  
+plot(pre100,
+   layout=layout_nicely,
+   vertex.size = 6,
+  main="Influencer-Marketing in der Sportsnutrition Branche (Ab 10 Tsd. Follower)")
+  
+plot(pre1M,
+   layout=layout_nicely,
+   vertex.size = 6,
+  main="Influencer-Marketing in der Sportsnutrition Branche (Ab 10 Tsd. Follower)")
+```
+Um einzelne Marken gezielter miteinander zu vergleichen, wurden Egonetzwerke für ESN (241 Knoten), Naturally Pam (5 Knoten) und Mammut Nutrition (70 Knoten) erstellt.
+
+```{r Egonetzwerke Marken, include=FALSE}
+esn <- make_ego_graph(pre, order = 2, nodes = V(pre)$id == 12, mode = "all")
+esn <- esn[[1]]
+
+np <- make_ego_graph(pre, order = 1, nodes = V(pre)$id == 17, mode = "all")
+np <- np[[1]]
+
+MaN <- make_ego_graph(imsc, order = 2, nodes = V(imsc)$id == 214, mode = "all")
+MaN <- MaN[[1]]
+
+esn3 <- make_ego_graph(imsc, order = 2, nodes = V(imsc)$id == 12, mode = "all")
+esn3 <- esn3[[1]]
+
+
+print(vcount(esn))
+print(ecount(esn))
+
+print(vcount(np))
+print(ecount(np))
+
+print(vcount(MaN))
+print(ecount(MaN))
+```
+ESN und Naturally Pam wurden ausgewählt, da sie den größten Kontrast hinsichtlich ihrer Degree-Werte (ESN (143) und Naturally Pam (4)) aufweisen. Dabei ist jedoch zu berücksichtigen, dass Pamela Reif – Gründerin und faktische Werbepartnerin von Naturally Pam – auf Instagram 9,2 Millionen Follower*innen hat und somit als eine der Top-Mega-Influencer gilt.
+
+```{r Visualisierung4,fig.height=9, fig.width=16}
+par(mfrow = c(1,2)) # ermöglicht zwei Abbildungen parallel zu setzen
+set.seed = 123
+
+plot(esn,
+     asp=1.5,
+     vertex.size = 8,
+     main="Teilnetzwerk ESN/MORE Nutrition")
+
+plot(np,
+     asp = 0,
+     vertex.size = 12,
+     main="Teilnetzwerk Naturally Pam")
+```
+Im zweiten Teilnetzwerk wird ersichtlich, dass ESN und More Nutrition auf allen vier Plattformen aktiv sind, während Marken wie Mammut Nutrition und Best Body Nutrition fast ausschließlich Instagram für Influencer-Marketing nutzen.
+```{r Visualisierung5,fig.height=9, fig.width=16}
+par(mfrow = c(1,2)) # ermöglicht zwei Abbildungen parallel zu setzen
+set.seed = 123
+
+plot(esn3,
+     asp=1.5,
+     vertex.size = 8,
+     main="Teilnetzwerk ESN/MORE Nutrition")
+
+plot(MaN,
+     asp = 0,
+     vertex.size = 8,
+     main="Teilnetzwerk Mammut Nutrition/Best Body Nutrition")
+```
+
+
+```{r Egonetzwerke Marken zwei, include=FALSE}
+esn2 <- make_ego_graph(ims, order = 2, nodes = V(ims)$id == 12, mode = "all")
+esn2 <- esn2[[1]]
+
+fs <- make_ego_graph(ims, order = 2, nodes = V(ims)$id == 15, mode = "all")
+fs<- fs[[1]]
+
+print(vcount(fs))
+print(ecount(fs))
+```
+In der abschließenden Visualisierung wurden die Egonetzwerke von ESN und foodspring mit Blick auf den Standort ihrer Influencerinnen verglichen. Dabei wird deutlich, dass foodspring ein deutlich internationaleres Publikum anspricht: 30 Influencerinnen aus Deutschland stehen 37 nicht-deutschen (darunter 17 NA) gegenüber. Auch zwischen ESN und More Nutrition zeigen sich Unterschiede. Während More Nutrition (bis auf eine Ausnahme) ausschließlich mit deutschen Influencer*innen kooperiert, adressiert ESN mit 19 Knoten aus dem Vereinigten Königreich auch ein englischsprachiges Publikum.  
+```{r Visualisierung6,fig.height=9, fig.width=16}
+par(mfrow = c(1,2)) # ermöglicht zwei Abbildungen parallel zu setzen
+set.seed = 123
+
+plot(esn2,
+     asp=1.5,
+     vertex.size = 9,
+     main="Teilnetzwerk ESN/MORE Nutrition")
+
+plot(fs,
+     asp = 0,
+     main="Teilnetzwerk foodspring")
+```
